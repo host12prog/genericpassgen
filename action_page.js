@@ -1,5 +1,5 @@
-var x = document.getElementById("");
-var y = document.getElementById("");
+var x = document.getElementById("length");
+var y = document.getElementById("generate");
 
 function makepass(length) {
    var result           = '';
