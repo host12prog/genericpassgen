@@ -6,9 +6,27 @@
 	</head>
 	<body style="text-align:center;">
 		<h1>Generic Password Generator</h1>
-		<form action="/action_page.js">
-			Password Length (max length: 388): <input type="number" name="length" min="1" max="388">
-			<input id="generate" type="button" value="Generate">
-		</form>
+		<p>Password Length (max length: 388): </p><input type="number" name="length" min="1" max="388">
+		<input id="generate" type="button" value="Generate">
+		<script>
+			var x = document.getElementById("length");
+			var y = document.getElementById("generate");
+
+			function makepass(length) {
+			   var result           = '';
+			   var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+			   var charactersLength = characters.length;
+			   for ( var i = 0; i < length; i++ ) {
+			      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+			   }
+			   return result;
+			}
+
+			x.onclick = function() {
+			    var s = document.createElement("strong");
+			    s.innerText = "Your generated password is: " + makepass(y.value);
+			    document.body.appendChild(s);
+			}
+		</script>
 	</body>
 </html>
